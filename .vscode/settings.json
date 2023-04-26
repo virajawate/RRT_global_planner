@@ -1,0 +1,36 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/viraj/WorkSpace/ws_three/devel/lib/python3/dist-packages",
+        "/home/viraj/WorkSpace/rrt/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ],
+    "files.associations": {
+        "*.ipp": "cpp",
+        "any": "cpp",
+        "*.tcc": "cpp",
+        "bitset": "cpp",
+        "complex": "cpp",
+        "algorithm": "cpp",
+        "memory": "cpp",
+        "random": "cpp",
+        "fstream": "cpp",
+        "initializer_list": "cpp",
+        "iomanip": "cpp",
+        "istream": "cpp",
+        "mutex": "cpp",
+        "ostream": "cpp",
+        "sstream": "cpp",
+        "streambuf": "cpp",
+        "array": "cpp",
+        "functional": "cpp",
+        "regex": "cpp",
+        "valarray": "cpp",
+        "numeric": "cpp",
+        "unordered_map": "cpp"
+    },
+    "python.analysis.extraPaths": [
+        "/home/viraj/WorkSpace/ws_three/devel/lib/python3/dist-packages",
+        "/home/viraj/WorkSpace/rrt/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ]
+}

@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Creating Robot spawning launcher  with realtime mapping and slam -->
+
+    <!-- SLAM IN THE ENV WITH AMCL -->
+    <!-- Importing the WORLD -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="use_sim_time" value="true"/>
+    <arg name="debug" value="false"/>
+    <arg name="headless" value="false"/>
+    <arg name="paused" value="false"/>
+    <arg name="gui" value="true"/>        
+    <arg name="world_name" value="$(find robot_gazebo)/worlds/firstworld.world"/>
+    </include>
+    
+    <!-- State robot and joint publisher args="-d $(find jvan)/rviz/modunoviz.rviz"-->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen"/>
+    <node name="joint_tester" pkg="rviz" type="rviz" args="-d $(find robot_gazebo)/rviz/modunoviz.rviz" output="screen"/>
+    
+    <!-- Importing the Robot -->
+    <param name="robot_description" textfile="$(find robot_description)/urdf/modelone.urdf"/>
+    <arg name="X" value="-10"/>
+    <arg name="Y" value="0"/>
+    <arg name="Z" value="0"/> 
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model modelone -x $(arg X) -y $(arg Y) -z $(arg Z)" output = "screen"/>
+
+
+    <!-- Mapping the data taken from Sensor data-->
+    <!-- <include file="$(find jvan)/launch/blocks/gmapping.launch"/>  -->
+
+    <!-- Changing/moving the base in the map -->
+    <include file="$(find robot_simulation)/launch/blocks/move_base_rrt.launch"/>
+    
+    <!-- Moving the Robot in the rviz -->
+    <include file="$(find robot_simulation)/launch/blocks/amcl.launch"/>
+
+    <!-- Importing Map -->
+    <arg name="map_file" value="$(find robot_simulation)/maps/mapuno.yaml"/>
+    <node name="map" pkg="map_server" type="map_server" args= "$(arg map_file)" output="screen"/>
+    
+    <node pkg="tf" type="static_transform_publisher" name="map_broadcaster" args="0 0 0 0 0 0 1 world map 100" />
+    <!-- <node pkg="tf" type="static_transform_publisher" name="odom_broadcaster" args="0 0 0 0 0 0 1 world odom 100" /> -->
+
+</launch>

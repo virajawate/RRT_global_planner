@@ -1,0 +1,31 @@
+{
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "${default}",
+                "limitSymbolsToIncludedHeaders": false
+            },
+            "includePath": [
+                "/home/viraj/WorkSpace/ws_three/devel/include/**",
+                "/home/viraj/WorkSpace/rrt/devel/include/**",
+                "/opt/ros/noetic/include/**",
+                "/home/viraj/WorkSpace/robot_ws/src/rrt_planner/include/**",
+                "/home/viraj/WorkSpace/ws_three/src/jvan/include/**",
+                "/home/viraj/WorkSpace/robot_ws/src/robot_description/include/**",
+                "/home/viraj/WorkSpace/robot_ws/src/robot_simulation/include/**",
+                "/home/viraj/WorkSpace/rrt/src/rrt_exploration/include/**",
+                "/home/viraj/WorkSpace/ws_three/src/simple_nav_goals/include/**",
+                "/usr/include/**",
+                "${workspaceFolder}/rrt_planner/",
+                "${workspaceFolder}/rrt_planner/include",
+                "/usr/include/eigen3"
+            ],
+            "name": "ROS",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "gnu11",
+            "cppStandard": "c++14"
+        }
+    ],
+    "version": 4
+}

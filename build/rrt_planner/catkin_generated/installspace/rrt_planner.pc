@@ -1,0 +1,8 @@
+prefix=/home/viraj/WorkSpace/robot_ws/install
+
+Name: rrt_planner
+Description: Description of rrt_planner
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: 

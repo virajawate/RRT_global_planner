@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+
+    <node pkg="move_base" type="move_base" name="move_base" output="screen">
+        <rosparam command="load" file="$(find robot_simulation)/launch/blocks/move_base_params.yaml"/>
+        
+        <rosparam command="load" file="$(find robot_simulation)/launch/blocks/costmap_common_params.yaml" ns="global_costmap"/>
+        <rosparam command="load" file="$(find robot_simulation)/launch/blocks/costmap_common_params.yaml" ns="local_costmap"/>
+        
+        <rosparam command="load" file="$(find robot_simulation)/launch/blocks/global_costmap_params.yaml"/>
+        <rosparam command="load" file="$(find robot_simulation)/launch/blocks/local_costmap_params.yaml"/>
+        <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" />
+        <rosparam command="load" file="$(find robot_simulation)/launch/blocks/base_global_planner_Navros.yaml"/>
+        <rosparam command="load" file="$(find robot_simulation)/launch/blocks/base_local_planner_dwa.yaml"/>
+
+        
+    </node>
+
+</launch>
