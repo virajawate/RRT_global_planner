@@ -1,0 +1,12 @@
+base_global_planner :  "rrt_planner/RRT_Planner"
+
+RRT_Planner:
+  convert_offset : 0.0
+  default_tolerance : 0.1
+  outline_map : false
+  obstacle_factor : 0.5
+  expand_zone : false
+  sample_points : 50000
+  sample_max_d : 5.0
+  optimization_r : 10.0
+  planner_name : rrt #//rrt_star #// rrt_connect #// informed_rrt #//rrt

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+
+    <node name="mapping_node" pkg="gmapping" type="slam_gmapping">
+        <param name="base_frame" value="base_footprint"/>
+        <param name="odom_frame" value="odom"/>
+        <param name="map_frame" value="map"/>
+        <param name="map_update_inteval" value="1"/>
+        <param name="temporalUpdate" value="1"/>
+        <param name="anglarUpdate" value="1"/>
+        <!-- <rosparam command="load" file="$(find jvan)/launch/blocks/gmapping.yaml"/> -->
+    </node>
+
+</launch>

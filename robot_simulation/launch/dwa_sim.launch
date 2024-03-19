@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<launch>
+    
+    <!-- Mapping the ENV with AMCL -->
+
+    <param name="robot_description" textfile="$(find robot_description)/urdf/modelone.urdf"/>
+    <arg name="x" default="-10"/>
+    <arg name="y" default="0"/>
+    <arg name="z" default="0"/>
+
+
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="use_sim_time" value="true"/>
+        <arg name="debug" value="false"/>
+        <arg name="headless" value="false"/>
+        <arg name="paused" value="false"/>
+        <arg name="gui" value="true"/>
+        <arg name="world_name" value="$(find robot_gazebo)/worlds/firstworld.world"/>
+    </include>
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen">
+        <param name="publish_frequency" type="double" value="10.0" />
+    </node>
+
+    <node name="RvizRobot" pkg="rviz" type="rviz" args="-d $(find robot_gazebo)/rviz/modunoviz.rviz" output="screen"/>
+    <!--args="-d $(find jvan)/rviz/modunoviz.rviz" --> 
+    <node name="spawnRobot" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model modelone -x $(arg x) -y $(arg y) -z $(arg z)" output="screen"/>
+    
+    <!-- <include file="$(find robot_simulation)/launch/blocks/gmapping.launch"/>  -->
+
+    <include file="$(find robot_simulation)/launch/blocks/move_base_dwa.launch"/>
+    
+    <include file="$(find robot_simulation)/launch/blocks/amcl.launch"/>
+
+    <!-- Importing Map -->
+    <arg name="map_file" value="$(find robot_simulation)/maps/mapuno.yaml"/>
+    
+    <node name="map" pkg="map_server" type="map_server" args= "$(arg map_file)" output="screen"/> 
+
+    
+
+</launch>

@@ -1,0 +1,18 @@
+max_obstacle_height: 10
+obstacle_range: 10
+raytrace_range: 10
+
+
+# track_unknown_space: true
+footprint: [[-1, -1], [-1, 1], [1, 1], [1, -1]]
+map_topic: /map
+global_frame: map
+robot_base_frame: base_footprint
+
+cost_scaling_factor: 10.0
+subscribe_to_update: true
+
+obstacles_laser:
+  observation_sources: laser
+  laser: {sensor_frame: laser, data_type: LaserScan, clearing: true, marking: true, topic: scan, inf_is_valid: true}
+always_send_full_costmap: true
