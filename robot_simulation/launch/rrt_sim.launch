@@ -18,6 +18,7 @@
     <node name="joint_tester" pkg="rviz" type="rviz" args="-d $(find robot_gazebo)/rviz/modunoviz.rviz" output="screen"/>
     
     <!-- Importing the Robot -->
+    <!-- <param name="robot_description" textfile="$(find robot_description)/urdf/DiffDriveScale_One.urdf"/> -->
     <param name="robot_description" textfile="$(find robot_description)/urdf/modelone.urdf"/>
     <arg name="X" value="-10"/>
     <arg name="Y" value="0"/>
