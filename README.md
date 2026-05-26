@@ -29,3 +29,4 @@ $ roslaunch robot_simulation rrt_sim.launch
 > You can change the planner by changing the planner.
 > Change the parameter ***'planner_name'*** in ***'robot_simulation/launch/blocks/base_global_planner_rrt.yaml'*** file.
 > The choices are already available in the file.
+> Continuing
